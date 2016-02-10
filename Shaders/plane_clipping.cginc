@@ -9,11 +9,11 @@
 	#define PLANE_CLIPPING_ENABLED 1
 
 	//http://mathworld.wolfram.com/Point-PlaneDistance.html
-	float distanceToPlane(float3 planePosition, float3 planeNormal, float3 pointInWorld)
+	float distanceToPlane(half3 planePosition, half3 planeNormal, half3 pointInWorld)
 	{
 	  //w = vector from plane to point
-	  float3 w = - ( planePosition - pointInWorld );
-	  float res = ( planeNormal.x * w.x + 
+	  half3 w = - ( planePosition - pointInWorld );
+	  half res = ( planeNormal.x * w.x + 
 					planeNormal.y * w.y + 
 					planeNormal.z * w.z ) 
 		/ sqrt( planeNormal.x * planeNormal.x +

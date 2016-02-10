@@ -30,9 +30,6 @@ Shader "Custom/StandardClippable" {
 
 		[Enum(UV0,0,UV1,1)] _UVSec ("UV Set for secondary textures", Float) = 0
 
-		// UI-only data
-		[HideInInspector] _EmissionScaleUI("Scale", Float) = 0.0
-		[HideInInspector] _EmissionColorUI("Color", Color) = (1,1,1)
 
 		// Blending state
 		[HideInInspector] _Mode ("__mode", Float) = 0.0
@@ -85,13 +82,11 @@ Shader "Custom/StandardClippable" {
 			
 			#pragma multi_compile_fwdbase
 			#pragma multi_compile_fog
-				
-			#pragma vertex vertForwardBase
-			#pragma fragment fragForwardBase
 
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
-
-			#include "standard_clipped.cginc"
+			#pragma vertex vertBase
+			#pragma fragment fragBase
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
@@ -122,13 +117,12 @@ Shader "Custom/StandardClippable" {
 			
 			#pragma multi_compile_fwdadd_fullshadows
 			#pragma multi_compile_fog
-			
-			#pragma vertex vertForwardAdd
-			#pragma fragment fragForwardAdd
 
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#pragma vertex vertAdd
+			#pragma fragment fragAdd
 
-			#include "standard_clipped.cginc"
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
@@ -249,13 +243,11 @@ Shader "Custom/StandardClippable" {
 
 			#pragma multi_compile_fwdbase
 			#pragma multi_compile_fog
-	
-			#pragma vertex vertForwardBase
-			#pragma fragment fragForwardBase
-
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
 
-			#include "standard_clipped.cginc"
+			#pragma vertex vertBase
+			#pragma fragment fragBase
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
@@ -283,12 +275,10 @@ Shader "Custom/StandardClippable" {
 			#pragma multi_compile_fwdadd_fullshadows
 			#pragma multi_compile_fog
 			
-			#pragma vertex vertForwardAdd
-			#pragma fragment fragForwardAdd
-
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
-
-			#include "standard_clipped.cginc"
+			#pragma vertex vertAdd
+			#pragma fragment fragAdd
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
@@ -339,6 +329,7 @@ Shader "Custom/StandardClippable" {
 			ENDCG
 		}
 	}
+
 
 	FallBack "VertexLit"
 	CustomEditor "StandardShaderGUI"
