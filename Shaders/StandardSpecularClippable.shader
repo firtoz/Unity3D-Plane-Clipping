@@ -37,6 +37,14 @@ Shader "Custom/StandardSpecularClippable"
 		[HideInInspector] _SrcBlend ("__src", Float) = 1.0
 		[HideInInspector] _DstBlend ("__dst", Float) = 0.0
 		[HideInInspector] _ZWrite ("__zw", Float) = 1.0
+
+		_planePos	("Clipping Plane Position",	Vector)	= ( 0, 0, 0, 1 )
+		_planePos2	("Clipping Plane Position 2",	Vector)	= ( 0, 0, 0, 1 )
+		_planePos3	("Clipping Plane Position 3",	Vector)	= ( 0, 0, 0, 1 )
+
+		_planeNorm	("Clipping Plane Normal",	Vector)	= ( 0, 1, 0, 1 )
+		_planeNorm2	("Clipping Plane Normal 2",	Vector)	= ( 0, 1, 0, 1 )
+		_planeNorm3	("Clipping Plane Normal 3",	Vector)	= ( 0, 1, 0, 1 )
 	}
 
 	CGINCLUDE
