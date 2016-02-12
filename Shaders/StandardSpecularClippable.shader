@@ -148,7 +148,8 @@ Shader "Custom/StandardSpecularClippable"
 			#pragma vertex vertShadowCaster
 			#pragma fragment fragShadowCaster
 
-			#include "UnityStandardShadow.cginc"
+			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#include "standard_shadow_clipped.cginc"
 
 			ENDCG
 		}
@@ -182,7 +183,8 @@ Shader "Custom/StandardSpecularClippable"
 			#pragma vertex vertDeferred
 			#pragma fragment fragDeferred
 
-			#include "UnityStandardCore.cginc"
+			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#include "standard_clipped.cginc"
 
 			ENDCG
 		}
@@ -296,7 +298,8 @@ Shader "Custom/StandardSpecularClippable"
 			#pragma vertex vertShadowCaster
 			#pragma fragment fragShadowCaster
 
-			#include "UnityStandardShadow.cginc"
+			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#include "standard_shadow_clipped.cginc"
 
 			ENDCG
 		}
