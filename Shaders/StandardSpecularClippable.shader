@@ -86,7 +86,8 @@ Shader "Custom/StandardSpecularClippable"
 
 			#pragma vertex vertBase
 			#pragma fragment fragBase
-			#include "UnityStandardCoreForward.cginc"
+			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
@@ -120,7 +121,8 @@ Shader "Custom/StandardSpecularClippable"
 
 			#pragma vertex vertAdd
 			#pragma fragment fragAdd
-			#include "UnityStandardCoreForward.cginc"
+			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
@@ -240,7 +242,8 @@ Shader "Custom/StandardSpecularClippable"
 
 			#pragma vertex vertBase
 			#pragma fragment fragBase
-			#include "UnityStandardCoreForward.cginc"
+			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
@@ -270,7 +273,8 @@ Shader "Custom/StandardSpecularClippable"
 
 			#pragma vertex vertAdd
 			#pragma fragment fragAdd
-			#include "UnityStandardCoreForward.cginc"
+			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
+			#include "UnityStandardCoreForwardClippable.cginc"
 
 			ENDCG
 		}
