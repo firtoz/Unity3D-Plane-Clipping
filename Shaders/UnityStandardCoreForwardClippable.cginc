@@ -15,10 +15,10 @@
 	half4 fragAdd (VertexOutputForwardAddSimple i) : SV_Target { return fragForwardAddSimpleInternal(i); }
 #else
 	#include "standard_clipped.cginc"
-	VertexOutputForwardBase vertBase (VertexInput v) { return vertForwardBase(v); }
-	VertexOutputForwardAdd vertAdd (VertexInput v) { return vertForwardAdd(v); }
-	half4 fragBase (VertexOutputForwardBase i) : SV_Target { return fragForwardBaseInternal(i); }
-	half4 fragAdd (VertexOutputForwardAdd i) : SV_Target { return fragForwardAddInternal(i); }
+	VertexOutputForwardClipBase vertBase (VertexInput v) { return vertForwardClipBase(v); }
+	VertexOutputForwardClipAdd vertAdd (VertexInput v) { return vertForwardClipAdd(v); }
+	half4 fragBase (VertexOutputForwardClipBase i) : SV_Target { return fragForwardClipBaseInternal(i); }
+	half4 fragAdd (VertexOutputForwardClipAdd i) : SV_Target { return fragForwardClipAddInternal(i); }
 #endif
 
 #endif // UNITY_STANDARD_CORE_FORWARD_INCLUDED

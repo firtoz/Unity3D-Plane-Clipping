@@ -145,8 +145,8 @@ Shader "Custom/StandardSpecularClippable"
 			#pragma shader_feature _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
 			#pragma multi_compile_shadowcaster
 
-			#pragma vertex vertShadowCaster
-			#pragma fragment fragShadowCaster
+			#pragma vertex vertShadowCasterClip
+			#pragma fragment fragShadowCasterClip
 
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
 			#include "standard_shadow_clipped.cginc"
@@ -180,8 +180,8 @@ Shader "Custom/StandardSpecularClippable"
 			#pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
 			#pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
 
-			#pragma vertex vertDeferred
-			#pragma fragment fragDeferred
+			#pragma vertex vertDeferredClip
+			#pragma fragment fragDeferredClip
 
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
 			#include "standard_clipped.cginc"

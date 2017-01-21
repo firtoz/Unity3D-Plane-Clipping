@@ -145,8 +145,8 @@ Shader "Custom/StandardClippable" {
 			#pragma shader_feature _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
 			#pragma multi_compile_shadowcaster
 
-			#pragma vertex vertShadowCaster
-			#pragma fragment fragShadowCaster
+			#pragma vertex vertShadowCasterClip
+			#pragma fragment fragShadowCasterClip
 
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
 
@@ -297,8 +297,8 @@ Shader "Custom/StandardClippable" {
 			#pragma skip_variants SHADOWS_SOFT
 			#pragma multi_compile_shadowcaster
 
-			#pragma vertex vertShadowCaster
-			#pragma fragment fragShadowCaster
+			#pragma vertex vertShadowCasterClip
+			#pragma fragment fragShadowCasterClip
 
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
 
