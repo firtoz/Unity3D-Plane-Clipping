@@ -181,8 +181,8 @@ Shader "Custom/StandardClippable" {
 			#pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
 			#pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
 			
-			#pragma vertex vertDeferred
-			#pragma fragment fragDeferred
+			#pragma vertex vertDeferredClip
+			#pragma fragment fragDeferredClip
 
 			#pragma multi_compile __ CLIP_ONE CLIP_TWO CLIP_THREE
 
