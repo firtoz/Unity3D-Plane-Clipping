@@ -15,4 +15,4 @@ If you'd like to reuse the properties of your material (as long as it's based fr
 
 ## More information
 
-See the [blog post](http://www.toxicfork.com/194/per-object-clipping-planes-shader-in-unity3d-5) here!
+See the [blog post](http://www.toxicfork.com/194/per-object-clipping-planes-shader-in-unity3d-5)!
