@@ -230,11 +230,11 @@ struct VertexOutputDeferredClip
 	UNITY_VERTEX_OUTPUT_STEREO
 };
 
-VertexOutputDeferred vertDeferredClip(VertexInput v)
+VertexOutputDeferredClip vertDeferredClip(VertexInput v)
 {
-	VertexOutputDeferred o;
+	VertexOutputDeferredClip o;
 	UNITY_SETUP_INSTANCE_ID(v);
-	UNITY_INITIALIZE_OUTPUT(VertexOutputDeferred, o);
+	UNITY_INITIALIZE_OUTPUT(VertexOutputDeferredClip, o);
 	UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
 	float4 posWorld = mul(unity_ObjectToWorld, v.vertex);
@@ -285,7 +285,7 @@ VertexOutputDeferred vertDeferredClip(VertexInput v)
 }
 
 void fragDeferredClip(
-	VertexOutputDeferred i,
+	VertexOutputDeferredClip i,
 	out half4 outGBuffer0 : SV_Target0,
 	out half4 outGBuffer1 : SV_Target1,
 	out half4 outGBuffer2 : SV_Target2,
