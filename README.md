@@ -12,3 +12,7 @@ Attach the "ClippableObject" script to an object.
 It will replace the material of the object with a "clippable" standard material.
 
 If you'd like to reuse the properties of your material (as long as it's based from standard material) see #2 !
+
+## More information
+
+See the [blog post](http://www.toxicfork.com/194/per-object-clipping-planes-shader-in-unity3d-5) here!
