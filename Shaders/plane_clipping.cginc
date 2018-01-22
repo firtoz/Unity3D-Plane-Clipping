@@ -8,18 +8,11 @@
 	//This makes it easier to check if this feature is available or not.
 	#define PLANE_CLIPPING_ENABLED 1
 
-	//http://mathworld.wolfram.com/Point-PlaneDistance.html
-	float distanceToPlane(half3 planePosition, half3 planeNormal, half3 pointInWorld)
+	float normalDotDirection(half3 planePosition, half3 planeNormal, half3 pointInWorld)
 	{
 	  //w = vector from plane to point
-	  half3 w = - ( planePosition - pointInWorld );
-	  half res = ( planeNormal.x * w.x + 
-					planeNormal.y * w.y + 
-					planeNormal.z * w.z ) 
-		/ sqrt( planeNormal.x * planeNormal.x +
-				planeNormal.y * planeNormal.y +
-				planeNormal.z * planeNormal.z );
-	  return res;
+	  half3 w = pointInWorld - planePosition;
+		return dot(planeNormal, w);
 	}
 
 	//we will have at least one plane.
@@ -42,18 +35,18 @@
 	void PlaneClip(float3 posWorld) {
 #if CLIP_THREE
 	  clip(float3(
-		distanceToPlane(_planePos.xyz, _planeNorm.xyz, posWorld),
-		distanceToPlane(_planePos2.xyz, _planeNorm2.xyz, posWorld),
-		distanceToPlane(_planePos3.xyz, _planeNorm3.xyz, posWorld)
+		normalDotDirection(_planePos.xyz, _planeNorm.xyz, posWorld),
+		normalDotDirection(_planePos2.xyz, _planeNorm2.xyz, posWorld),
+		normalDotDirection(_planePos3.xyz, _planeNorm3.xyz, posWorld)
 	  ));
 #else //CLIP_THREE
 #if CLIP_TWO
 	  clip(float2(
-		distanceToPlane(_planePos.xyz, _planeNorm.xyz, posWorld),
-		distanceToPlane(_planePos2.xyz, _planeNorm2.xyz, posWorld)
+		normalDotDirection(_planePos.xyz, _planeNorm.xyz, posWorld),
+		normalDotDirection(_planePos2.xyz, _planeNorm2.xyz, posWorld)
 	  ));
 #else //CLIP_TWO
-	  clip(distanceToPlane(_planePos.xyz, _planeNorm.xyz, posWorld));
+	  clip(normalDotDirection(_planePos.xyz, _planeNorm.xyz, posWorld));
 #endif //CLIP_TWO
 #endif //CLIP_THREE
 	}
